@@ -1,0 +1,18 @@
+.load-more-button {
+  visibility:visible;
+  opacity: 1;
+  pointer-events:all;
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+	opasity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:disabled {
+    border-color: dimgrey;
+    color:dimgrey;
+  }
+}

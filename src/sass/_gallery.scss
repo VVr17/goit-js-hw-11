@@ -1,0 +1,41 @@
+
+.gallery {
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.photo-card {
+	flex-basis: calc((100% - 60px) / 4);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+	padding: 8px 8px 12px 8px;
+  background-color:azure;
+}
+
+.image {
+	width: 100%;
+	object-fit: cover;
+	display: block;
+	height: 200px;
+	margin-bottom: 10px;
+}
+
+.info {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 8px;
+
+	font-size: 12px;
+}
+
+.info-item {
+	flex-basis: calc((100% - 24px) / 4);
+
+}
+
+.info-item span {
+	display: block;
+	font-weight: 400;
+}
