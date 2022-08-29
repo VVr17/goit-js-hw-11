@@ -64,7 +64,7 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
     return;
   }
 
-  if (hits.length <= totalHits) {
+  if (hits.length < totalHits) {
     observer.observe(gallery.ref.lastElementChild);
   }
 
