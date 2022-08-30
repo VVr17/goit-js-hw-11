@@ -17,7 +17,7 @@ const galleryLightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 200,
 });
-const observer = new IntersectionObserver(onIntersection, { threshold: 0.1 });
+const observer = new IntersectionObserver(onIntersection, { threshold: 0.2 });
 
 gallery.formRef.addEventListener('submit', onSubmit);
 // loadMoreBtn.buttonRef.addEventListener('click', fetchGalleryAndRenderPage);

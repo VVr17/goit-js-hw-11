@@ -8,7 +8,7 @@ export default class PicturesApiService {
     this.searchQuery = '';
     this.page = 1;
     this.picturesPerPage = 40;
-    this.remainPages = 0; 
+    this.remainPages = 0;
   }
 
   async fetchPhoto() {
@@ -38,6 +38,6 @@ export default class PicturesApiService {
 
   resetPageAndCounter() {
     this.page = 1;
-    this.remainPagesCounter = 0;
+    this.remainPages = 0;
   }
 }
