@@ -54,8 +54,8 @@
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
-	width: 65px;
-	height: 65px;
+	width: 54px;
+	height: 54px;
 
 	background-color:#03453b;
 	cursor: pointer;
@@ -76,5 +76,6 @@
 }
 
 .icon-arrow {
+	fill: currentColor;
 	stroke: currentColor;
 }
