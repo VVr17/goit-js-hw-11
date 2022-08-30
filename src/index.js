@@ -17,7 +17,7 @@ const galleryLightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 200,
 });
-const observer = new IntersectionObserver(onInterception, { threshold: 0.1 });
+const observer = new IntersectionObserver(onIntersection, { threshold: 0.1 });
 
 gallery.formRef.addEventListener('submit', onSubmit);
 // loadMoreBtn.buttonRef.addEventListener('click', fetchGalleryAndRenderPage);
@@ -27,8 +27,11 @@ function onSubmit(event) {
   // if (!loadMoreBtn.hidden) {loadMoreBtn.hide();}
 
   picturesApiService.searchQuery = event.target.elements.searchQuery.value;
-  picturesApiService.resetPageAndCounter();
-  gallery.clear();
+  if (gallery.ref.children.length) {
+    picturesApiService.resetPageAndCounter();
+    gallery.clear();
+  }
+
   searchBtn.disable();
   fetchGalleryAndRenderPage();
   event.target.reset();
@@ -52,6 +55,10 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
     gallery.countTotalPictures(totalHits);
   }
 
+  if (picturesApiService.page > 1) {
+    observer.unobserve(gallery.ref.lastElementChild);
+  }
+
   picturesApiService.countRemainPages(totalHits);
   gallery.render(hits);
   galleryLightbox.refresh();
@@ -60,7 +67,9 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
     gallery.onTotalPicturesLoaded();
     loadingDots.classList.remove('show');
     // loadMoreBtn.hide();
-    if (searchBtn.disabled) { searchBtn.enable();}
+    if (searchBtn.disabled) {
+      searchBtn.enable();
+    }
     return;
   }
 
@@ -82,10 +91,9 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
   // loadMoreBtn.enable();
 }
 
-function onInterception(entries, observer) {
+function onIntersection(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      console.log('Привет из колбека в forEach');
       fetchGalleryAndRenderPage();
       loadingDots.classList.add('show');
     }
