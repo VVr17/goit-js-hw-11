@@ -24,7 +24,7 @@ gallery.formRef.addEventListener('submit', onSubmit);
 
 function onSubmit(event) {
   event.preventDefault();
-  // if (!loadMoreBtn.hidden) {loadMoreBtn.hide();}
+  // if (!loadMoreBtn.hidden) loadMoreBtn.hide();
 
   picturesApiService.searchQuery = event.target.elements.searchQuery.value;
   if (gallery.ref.children.length) {
@@ -51,13 +51,8 @@ async function fetchGalleryAndRenderPage() {
 }
 
 function renderGalleryAndSearchingForm({ hits, totalHits }) {
-  if (picturesApiService.page === 1) {
-    gallery.countTotalPictures(totalHits);
-  }
-
-  if (picturesApiService.page > 1) {
-    observer.unobserve(gallery.ref.lastElementChild);
-  }
+  if (picturesApiService.page === 1) gallery.countTotalPictures(totalHits);
+  if (picturesApiService.page > 1) observer.unobserve(gallery.ref.lastElementChild);
 
   picturesApiService.countRemainPages(totalHits);
   gallery.render(hits);
@@ -67,27 +62,18 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
     gallery.onTotalPicturesLoaded();
     loadingDots.classList.remove('show');
     // loadMoreBtn.hide();
-    if (searchBtn.disabled) {
-      searchBtn.enable();
-    }
+    if (searchBtn.disabled) searchBtn.enable();
     return;
   }
 
-  if (hits.length < totalHits) {
-    observer.observe(gallery.ref.lastElementChild);
-  }
-
-  if (picturesApiService.page > 1) {
-    gallery.smoothScroll();
-  }
+  if (hits.length < totalHits) observer.observe(gallery.ref.lastElementChild);
+  if (picturesApiService.page > 1) gallery.smoothScroll();
 
   picturesApiService.page += 1;
 
-  if (searchBtn.disabled) {
-    searchBtn.enable();
-  }
+  if (searchBtn.disabled) searchBtn.enable();
   loadingDots.classList.remove('show');
-  // if (loadMoreBtn.hidden) { loadMoreBtn.show();}
+  // if (loadMoreBtn.hidden) loadMoreBtn.show();
   // loadMoreBtn.enable();
 }
 
