@@ -12,7 +12,7 @@ export default class PicturesApiService {
   }
 
   // fetchPhoto() {
-  //   fetch(`https://pixabay.com/api?key=28871664-21007d01445281d8ccfafe378&q=cat&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`).
+  //   return fetch(`https://pixabay.com/api?key=28871664-21007d01445281d8ccfafe378&q=cat&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`).
   //   then(response => response.json)
   // }
 

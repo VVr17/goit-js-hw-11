@@ -53,8 +53,7 @@ async function fetchGalleryAndRenderPage() {
 // function fetchGalleryAndRenderPage() {
 
 //   picturesApiService.fetchPhoto()
-//   .then(data => renderGalleryAndSearchingForm(data));
-
+//   .then(({hits, totalHits}) => renderGalleryAndSearchingForm(data));
 //   }
 
 function renderGalleryAndSearchingForm({ hits, totalHits }) {
