@@ -30,7 +30,7 @@ export default class PicturesApiService {
     try {
       // const response = await axios.get(this.#BASE_URL, { params });
       const response = await axios.get(`https://pixabay.com/api?key=28871664-21007d01445281d8ccfafe378&q=cat`);
-      return response;
+      return response.data;
 
     } catch (error) {
       console.error(error);

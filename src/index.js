@@ -51,8 +51,7 @@ async function fetchGalleryAndRenderPage() {
 }
 
 // function fetchGalleryAndRenderPage() {
-//     // loadMoreBtn.disable();
-  
+
 //   picturesApiService.fetchPhoto()
 //   .then(data => renderGalleryAndSearchingForm(data));
 
