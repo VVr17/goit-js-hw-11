@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class PicturesApiService {
   #API_KEY = '28871664-21007d01445281d8ccfafe378';
-  #BASE_URL = 'https://pixabay.com/api';
+  #BASE_URL = 'https://pixabay.com/api/';
 
   constructor() {
     this.searchQuery = '';
@@ -10,11 +10,6 @@ export default class PicturesApiService {
     this.picturesPerPage = 40;
     this.remainPages = 0;
   }
-
-  // fetchPhoto() {
-  //   return fetch(`https://pixabay.com/api?key=28871664-21007d01445281d8ccfafe378&q=cat&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`).
-  //   then(response => response.json)
-  // }
 
   async fetchPhoto() {
     const params = {
@@ -28,9 +23,9 @@ export default class PicturesApiService {
     };
 
     try {
-      // const response = await axios.get(this.#BASE_URL, { params });
+      const response = await axios.get(this.#BASE_URL, { params });
       // const response = await axios.get(`https://pixabay.com/api/?key=24377768-1651c24dae1d00899e27f41ae&q=car&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`);
-      const response = await axios.get(`https://pixabay.com/api/?key=28871664-21007d01445281d8ccfafe378&q=car&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`);
+      // const response = await axios.get(`https://pixabay.com/api/?key=28871664-21007d01445281d8ccfafe378&q=car&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`);
       return response.data;
 
     } catch (error) {

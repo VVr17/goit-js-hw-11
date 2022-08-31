@@ -50,12 +50,6 @@ async function fetchGalleryAndRenderPage() {
   }
 }
 
-// function fetchGalleryAndRenderPage() {
-
-//   picturesApiService.fetchPhoto()
-//   .then(({hits, totalHits}) => renderGalleryAndSearchingForm(data));
-//   }
-
 function renderGalleryAndSearchingForm({ hits, totalHits }) {
   if (picturesApiService.page === 1) {
     gallery.countTotalPictures(totalHits);
