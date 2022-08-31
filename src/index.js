@@ -27,10 +27,10 @@ function onSubmit(event) {
   // if (!loadMoreBtn.hidden) {loadMoreBtn.hide();}
 
   picturesApiService.searchQuery = event.target.elements.searchQuery.value;
-  if (gallery.ref.children.length) {
-    picturesApiService.resetPageAndCounter();
-    gallery.clear();
-  }
+  // if (gallery.ref.children.length) {
+  //   picturesApiService.resetPageAndCounter();
+  //   gallery.clear();
+  // }
 
   searchBtn.disable();
   fetchGalleryAndRenderPage();
@@ -63,9 +63,9 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
     gallery.countTotalPictures(totalHits);
   }
 
-  if (picturesApiService.page > 1) {
-    observer.unobserve(gallery.ref.lastElementChild);
-  }
+  // if (picturesApiService.page > 1) {
+  //   observer.unobserve(gallery.ref.lastElementChild);
+  // }
 
   picturesApiService.countRemainPages(totalHits);
   gallery.render(hits);
@@ -81,9 +81,9 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
     return;
   }
 
-  if (hits.length < totalHits) {
-    observer.observe(gallery.ref.lastElementChild);
-  }
+  // if (hits.length < totalHits) {
+  //   observer.observe(gallery.ref.lastElementChild);
+  // }
 
   if (picturesApiService.page > 1) {
     gallery.smoothScroll();
