@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 export default class PicturesApiService {
   #API_KEY = '28871664-21007d01445281d8ccfafe378';
@@ -27,12 +27,14 @@ export default class PicturesApiService {
       // const response = await axios.get(`https://pixabay.com/api?key=28871664-21007d01445281d8ccfafe378&q=cat&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`);
 
       const data = await fetch(`https://pixabay.com/api?key=28871664-21007d01445281d8ccfafe378&q=cat&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`);
+      // const data = await fetch(`${this.#BASE_URL}?key=${this.#API_KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.per_page}`);
       const response = await data.json();
       return response;
 
     } catch (error) {
-      console.error(error);
-      console.log(error.response.status);
+      // console.error(error);
+      console.log('error')
+      // console.log(error.response.status);
     }
   }
 
