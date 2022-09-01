@@ -2,20 +2,20 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://VVr17.github.io/goit-js-hw-11",
+  "homepage": "https://VVr17.github.io/searching-form",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+    "build": "parcel build src/*.html --public-url /searching-form/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VVr17/goit-js-hw-11"
+    "url": "git+https://github.com/VVr17/searching-form"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VVr17/goit-js-hw-11/issues"
+    "url": "https://github.com/VVr17/searching-form/issues"
   },
   "dependencies": {
     "axios": "^0.27.2",
