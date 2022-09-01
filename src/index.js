@@ -1,17 +1,17 @@
-import Gallery from './js/gallery';
-import PicturesApiService from './js/api-service';
-// import LoadMoreBtn from './js/load-more-btn';
-import SearchBtn from './js/search-btn';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+import Gallery from './js/gallery';
+// import LoadMoreBtn from './js/load-more-btn';
+import PicturesApiService from './js/api-service';
+import SearchBtn from './js/search-btn';
+import SearchingForm from './js/searching-form';
+
 const picturesApiService = new PicturesApiService();
-const gallery = new Gallery({
-  formSelector: '#search-form',
-  gallerySelector: '.gallery',
-});
+const gallery = new Gallery('.gallery');
+const searchingForm = new SearchingForm('#search-form');
 // const loadMoreBtn = new LoadMoreBtn('.js-load-more');
-const loadingDots = document.querySelector('.loading');
+const loadingDots = document.querySelector('.loading-dots');
 const searchBtn = new SearchBtn('.js-search-btn');
 const galleryLightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
@@ -19,10 +19,10 @@ const galleryLightbox = new SimpleLightbox('.gallery a', {
 });
 const observer = new IntersectionObserver(onIntersection, { threshold: 0.2 });
 
-gallery.formRef.addEventListener('submit', onSubmit);
-// loadMoreBtn.buttonRef.addEventListener('click', fetchGalleryAndRenderPage);
+searchingForm.addSubmitFormHandler(onSearchingFormSubmit);
+// loadMoreBtn.buttonRef.addLoadMoreBtnHandler(fetchGalleryAndRenderPage);
 
-function onSubmit(event) {
+function onSearchingFormSubmit(event) {
   event.preventDefault();
   // if (!loadMoreBtn.hidden) loadMoreBtn.hide();
 
@@ -70,7 +70,7 @@ function renderGalleryAndSearchingForm({ hits, totalHits }) {
   if (hits.length < totalHits) observer.observe(gallery.ref.lastElementChild);
   if (picturesApiService.page > 1) gallery.smoothScroll();
 
-  picturesApiService.page += 1;
+  picturesApiService.incrementPage();
 
   if (searchBtn.disabled) searchBtn.enable();
   loadingDots.classList.remove('show');

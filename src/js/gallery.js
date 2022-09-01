@@ -2,9 +2,8 @@ import photoCardTpl from '../templates/photo-card.hbs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export default class Gallery {
-  constructor({ formSelector, gallerySelector }) {
-    this.formRef = document.querySelector(formSelector);
-    this.ref = document.querySelector(gallerySelector);
+  constructor(selector) {
+    this.ref = document.querySelector(selector);
   }
 
   render(pictures) {

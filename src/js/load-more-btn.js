@@ -4,6 +4,10 @@ export default class LoadMoreBtn {
     this.hidden = true;
   }
 
+  addLoadMoreBtnHandler(handler) {
+    this.buttonRef.addEventListener('click', handler);
+  }
+
   disable() {
     this.buttonRef.setAttribute('disabled', true);
     this.buttonRef.textContent = 'Loading...';

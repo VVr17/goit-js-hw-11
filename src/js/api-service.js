@@ -37,6 +37,10 @@ export default class PicturesApiService {
       Math.ceil(totalPictures / this.picturesPerPage) - this.page;
   }
 
+  incrementPage() {
+    this.page += 1;
+  }
+  
   resetPageAndCounter() {
     this.page = 1;
     this.remainPages = 0;

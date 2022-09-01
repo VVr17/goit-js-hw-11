@@ -1,5 +1,5 @@
 
-.loading {
+.loading-dots {
 	opacity: 0;
 	display: flex;
 	position: fixed;
@@ -7,13 +7,13 @@
 	left: 50%;
 	transform: translateX(-50%);
 	transition: opacity .3s ease-in;
+
+	&.show {
+		opacity: 1;
+	}
 }
 
-.loading.show {
-	opacity: 1;
-}
-
-.loading__ball {
+.loading__dot {
 	background-color: #777;
 	border-radius: 50%;
 	margin: 5px;

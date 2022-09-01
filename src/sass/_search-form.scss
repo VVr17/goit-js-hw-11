@@ -1,18 +1,29 @@
 .search-form {
   background-color: #03453b;
   padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	margin-bottom: 10px;
+	text-align: center;
+
+	@media screen and (min-width:768px) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .form-input {
-  margin-right: 10px;
   padding: 12px 20px;
   min-width: 250px;
 	border: 1px solid transparent;
 	border-radius: 4px;
 
+	@media screen and (max-width:767.98px) {
+		margin-bottom: 10px;
+	}
+
+	@media screen and (min-width:768px) {
+		margin-right: 10px;
+	}
 }
 
 .form-button {
@@ -37,6 +48,10 @@
 	color 250ms cubic-bezier(0.4, 0, 0.2, 1),
 	border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
   box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	@media screen and (max-width:767.98px) {
+			margin: 0 auto;
+	}
 
 	&:hover,
 	&:focus {
