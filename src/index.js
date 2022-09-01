@@ -52,7 +52,8 @@ async function fetchGalleryAndRenderPage() {
 
 function renderGalleryAndSearchingForm({ hits, totalHits }) {
   if (picturesApiService.page === 1) gallery.countTotalPictures(totalHits);
-  if (picturesApiService.page > 1) observer.unobserve(gallery.ref.lastElementChild);
+  if (picturesApiService.page > 1)
+    observer.unobserve(gallery.ref.lastElementChild);
 
   picturesApiService.countRemainPages(totalHits);
   gallery.render(hits);
